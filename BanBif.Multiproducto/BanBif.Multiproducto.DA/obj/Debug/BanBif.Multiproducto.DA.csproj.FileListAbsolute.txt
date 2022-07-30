@@ -1,0 +1,14 @@
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.DA\bin\Debug\BanBif.Multiproducto.DA.dll.config
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.DA\bin\Debug\BanBif.Multiproducto.DA.dll
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.DA\bin\Debug\BanBif.Multiproducto.DA.pdb
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.DA\bin\Debug\BanBif.Multiproducto.BE.dll
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.DA\bin\Debug\EntityFramework.dll
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.DA\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.DA\bin\Debug\BanBif.Multiproducto.BE.pdb
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.DA\bin\Debug\EntityFramework.xml
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.DA\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.DA\obj\Debug\BanBif.Multiproducto.DA.csproj.AssemblyReference.cache
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.DA\obj\Debug\BanBif.Multiproducto.DA.csproj.CoreCompileInputs.cache
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.DA\obj\Debug\BanBif.Multiproducto.DA.csproj.CopyComplete
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.DA\obj\Debug\BanBif.Multiproducto.DA.dll
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.DA\obj\Debug\BanBif.Multiproducto.DA.pdb

@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BanBif.Multiproducto.APP", "BanBif.Multiproducto.APP\BanBif.Multiproducto.APP.csproj", "{7F7AFA9F-FEC1-4733-AA3E-798E72D0A800}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CA47C15F-ADAB-4113-A099-6FE52DF72418} = {CA47C15F-ADAB-4113-A099-6FE52DF72418}
+		{4F7912A7-E26D-433A-B39A-0CC8C638C151} = {4F7912A7-E26D-433A-B39A-0CC8C638C151}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BanBif.Multiproducto.API", "BanBif.Multiproducto.API\BanBif.Multiproducto.API.csproj", "{CA47C15F-ADAB-4113-A099-6FE52DF72418}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F77A1417-5205-4FE7-8A30-22E962021731} = {F77A1417-5205-4FE7-8A30-22E962021731}
+		{4F7912A7-E26D-433A-B39A-0CC8C638C151} = {4F7912A7-E26D-433A-B39A-0CC8C638C151}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BanBif.Multiproducto.DA", "BanBif.Multiproducto.DA\BanBif.Multiproducto.DA.csproj", "{C0C4559C-6B30-4756-9354-6AF3B0460C2A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4F7912A7-E26D-433A-B39A-0CC8C638C151} = {4F7912A7-E26D-433A-B39A-0CC8C638C151}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BanBif.Multiproducto.BE", "BanBif.Multiproducto.BE\BanBif.Multiproducto.BE.csproj", "{4F7912A7-E26D-433A-B39A-0CC8C638C151}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BanBif.Multiproducto.BL", "BanBif.Multiproducto.BL\BanBif.Multiproducto.BL.csproj", "{F77A1417-5205-4FE7-8A30-22E962021731}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C0C4559C-6B30-4756-9354-6AF3B0460C2A} = {C0C4559C-6B30-4756-9354-6AF3B0460C2A}
+		{4F7912A7-E26D-433A-B39A-0CC8C638C151} = {4F7912A7-E26D-433A-B39A-0CC8C638C151}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F7AFA9F-FEC1-4733-AA3E-798E72D0A800}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F7AFA9F-FEC1-4733-AA3E-798E72D0A800}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F7AFA9F-FEC1-4733-AA3E-798E72D0A800}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F7AFA9F-FEC1-4733-AA3E-798E72D0A800}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA47C15F-ADAB-4113-A099-6FE52DF72418}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA47C15F-ADAB-4113-A099-6FE52DF72418}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA47C15F-ADAB-4113-A099-6FE52DF72418}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA47C15F-ADAB-4113-A099-6FE52DF72418}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0C4559C-6B30-4756-9354-6AF3B0460C2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0C4559C-6B30-4756-9354-6AF3B0460C2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0C4559C-6B30-4756-9354-6AF3B0460C2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0C4559C-6B30-4756-9354-6AF3B0460C2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F7912A7-E26D-433A-B39A-0CC8C638C151}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F7912A7-E26D-433A-B39A-0CC8C638C151}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F7912A7-E26D-433A-B39A-0CC8C638C151}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F7912A7-E26D-433A-B39A-0CC8C638C151}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F77A1417-5205-4FE7-8A30-22E962021731}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F77A1417-5205-4FE7-8A30-22E962021731}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F77A1417-5205-4FE7-8A30-22E962021731}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F77A1417-5205-4FE7-8A30-22E962021731}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {539EB2C0-0225-41C1-9999-B54CA56DE629}
+	EndGlobalSection
+EndGlobal

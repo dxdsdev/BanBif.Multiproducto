@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="panelModelStoreContainer" CdmEntityContainer="panelEntities">
+    <EntitySetMapping Name="MULTIPRODUCTOS_CLIENTE">
+      <EntityTypeMapping TypeName="panelModel.MULTIPRODUCTOS_CLIENTE">
+        <MappingFragment StoreEntitySet="MULTIPRODUCTOS_CLIENTE">
+          <ScalarProperty Name="clienteid" ColumnName="clienteid" />
+          <ScalarProperty Name="dni" ColumnName="dni" />
+          <ScalarProperty Name="nombres" ColumnName="nombres" />
+          <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="segmento" ColumnName="segmento" />
+          <ScalarProperty Name="celular" ColumnName="celular" />
+          <ScalarProperty Name="fecreg" ColumnName="fecreg" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MULTIPRODUCTOS_PRODUCTO">
+      <EntityTypeMapping TypeName="panelModel.MULTIPRODUCTOS_PRODUCTO">
+        <MappingFragment StoreEntitySet="MULTIPRODUCTOS_PRODUCTO">
+          <ScalarProperty Name="productoid" ColumnName="productoid" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="detalle1" ColumnName="detalle1" />
+          <ScalarProperty Name="detalle2" ColumnName="detalle2" />
+          <ScalarProperty Name="condicion" ColumnName="condicion" />
+          <ScalarProperty Name="masinf" ColumnName="masinf" />
+          <ScalarProperty Name="vigencia" ColumnName="vigencia" />
+          <ScalarProperty Name="segmento" ColumnName="segmento" />
+          <ScalarProperty Name="fecreg" ColumnName="fecreg" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MULTIPRODUCTOS_SOLICITUD">
+      <EntityTypeMapping TypeName="panelModel.MULTIPRODUCTOS_SOLICITUD">
+        <MappingFragment StoreEntitySet="MULTIPRODUCTOS_SOLICITUD">
+          <ScalarProperty Name="registroid" ColumnName="registroid" />
+          <ScalarProperty Name="productoid" ColumnName="productoid" />
+          <ScalarProperty Name="clienteid" ColumnName="clienteid" />
+          <ScalarProperty Name="fecsol" ColumnName="fecsol" />
+          <ScalarProperty Name="ipcliente" ColumnName="ipcliente" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_MULTIPRODUCTO_CONSULTAR_X_DNI" FunctionName="panelModel.Store.SP_MULTIPRODUCTO_CONSULTAR_X_DNI">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="panelModel.SP_MULTIPRODUCTO_CONSULTAR_X_DNI_Result">
+          <ScalarProperty Name="clienteid" ColumnName="clienteid" />
+          <ScalarProperty Name="dni" ColumnName="dni" />
+          <ScalarProperty Name="nombres" ColumnName="nombres" />
+          <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="segmento" ColumnName="segmento" />
+          <ScalarProperty Name="celular" ColumnName="celular" />
+          <ScalarProperty Name="fecreg" ColumnName="fecreg" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_MULTIPRODUCTO_OBTENER_PRODUCTOS" FunctionName="panelModel.Store.SP_MULTIPRODUCTO_OBTENER_PRODUCTOS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="panelModel.SP_MULTIPRODUCTO_OBTENER_PRODUCTOS_Result">
+          <ScalarProperty Name="productoid" ColumnName="productoid" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="detalle1" ColumnName="detalle1" />
+          <ScalarProperty Name="detalle2" ColumnName="detalle2" />
+          <ScalarProperty Name="condicion" ColumnName="condicion" />
+          <ScalarProperty Name="masinf" ColumnName="masinf" />
+          <ScalarProperty Name="vigencia" ColumnName="vigencia" />
+          <ScalarProperty Name="segmento" ColumnName="segmento" />
+          <ScalarProperty Name="fecreg" ColumnName="fecreg" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_MULTIPRODUCTO_OBTENER_PRODUCTOS_SEGMENTO" FunctionName="panelModel.Store.SP_MULTIPRODUCTO_OBTENER_PRODUCTOS_SEGMENTO">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="panelModel.SP_MULTIPRODUCTO_OBTENER_PRODUCTOS_SEGMENTO_Result">
+          <ScalarProperty Name="productoid" ColumnName="productoid" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="detalle1" ColumnName="detalle1" />
+          <ScalarProperty Name="detalle2" ColumnName="detalle2" />
+          <ScalarProperty Name="condicion" ColumnName="condicion" />
+          <ScalarProperty Name="masinf" ColumnName="masinf" />
+          <ScalarProperty Name="vigencia" ColumnName="vigencia" />
+          <ScalarProperty Name="segmento" ColumnName="segmento" />
+          <ScalarProperty Name="fecreg" ColumnName="fecreg" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_MULTIPRODUCTO_REGISTRAR_LOG" FunctionName="panelModel.Store.SP_MULTIPRODUCTO_REGISTRAR_LOG" />
+    <FunctionImportMapping FunctionImportName="SP_MULTIPRODUCTO_REGISTRAR_SOLICITUD" FunctionName="panelModel.Store.SP_MULTIPRODUCTO_REGISTRAR_SOLICITUD" />
+    <EntitySetMapping Name="MULTIPRODUCTOS_LOG">
+      <EntityTypeMapping TypeName="panelModel.MULTIPRODUCTOS_LOG">
+        <MappingFragment StoreEntitySet="MULTIPRODUCTOS_LOG">
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="detalle" ColumnName="detalle" />
+          <ScalarProperty Name="accion" ColumnName="accion" />
+          <ScalarProperty Name="dni" ColumnName="dni" />
+          <ScalarProperty Name="idregistro" ColumnName="idregistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MULTIPRODUCTOS_TOKEN">
+      <EntityTypeMapping TypeName="panelModel.MULTIPRODUCTOS_TOKEN">
+        <MappingFragment StoreEntitySet="MULTIPRODUCTOS_TOKEN">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="VALIDADO" ColumnName="VALIDADO" />
+          <ScalarProperty Name="TOKEN" ColumnName="TOKEN" />
+          <ScalarProperty Name="DOCUMENTO" ColumnName="DOCUMENTO" />
+          <ScalarProperty Name="CODIGOTOKEN" ColumnName="CODIGOTOKEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_MULTIPRODUCTO_REGISTRAR_TOKEN" FunctionName="panelModel.Store.SP_MULTIPRODUCTO_REGISTRAR_TOKEN" />
+  </EntityContainerMapping>
+</Mapping>

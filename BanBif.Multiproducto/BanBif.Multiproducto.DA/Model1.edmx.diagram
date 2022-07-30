@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d952b1fa020f485599f6d7c8f3830fe2" Name="Diagram1">
+        <EntityTypeShape EntityType="panelModel.MULTIPRODUCTOS_CLIENTE" Width="1.5" PointX="1.125" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="panelModel.MULTIPRODUCTOS_PRODUCTO" Width="1.5" PointX="5" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="panelModel.MULTIPRODUCTOS_SOLICITUD" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="panelModel.FK__MULTIPROD__clien__075714DC" ManuallyRouted="false" />
+        <AssociationConnector Association="panelModel.FK__MULTIPROD__produ__0662F0A3" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="panelModel.MULTIPRODUCTOS_LOG" Width="1.5" PointX="6.75" PointY="1.125" />
+        <EntityTypeShape EntityType="panelModel.MULTIPRODUCTOS_TOKEN" Width="1.5" PointX="8.75" PointY="1.125" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

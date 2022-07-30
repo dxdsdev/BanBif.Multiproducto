@@ -1,0 +1,433 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="panelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="MULTIPRODUCTOS_CLIENTE">
+          <Key>
+            <PropertyRef Name="clienteid" />
+          </Key>
+          <Property Name="clienteid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dni" Type="varchar" MaxLength="12" />
+          <Property Name="nombres" Type="varchar" MaxLength="100" />
+          <Property Name="apellidos" Type="varchar" MaxLength="100" />
+          <Property Name="mail" Type="varchar" MaxLength="100" />
+          <Property Name="segmento" Type="varchar" MaxLength="30" />
+          <Property Name="celular" Type="varchar" MaxLength="10" />
+          <Property Name="fecreg" Type="datetime" />
+          <Property Name="estado" Type="int" />
+        </EntityType>
+        <EntityType Name="MULTIPRODUCTOS_LOG">
+          <Key>
+            <PropertyRef Name="idregistro" />
+          </Key>
+          <Property Name="idregistro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dni" Type="varchar" MaxLength="12" />
+          <Property Name="accion" Type="int" />
+          <Property Name="detalle" Type="varchar" MaxLength="300" />
+          <Property Name="fecha" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MULTIPRODUCTOS_PRODUCTO">
+          <Key>
+            <PropertyRef Name="productoid" />
+          </Key>
+          <Property Name="productoid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="100" />
+          <Property Name="detalle1" Type="varchar" MaxLength="100" />
+          <Property Name="detalle2" Type="varchar" MaxLength="100" />
+          <Property Name="condicion" Type="varchar" MaxLength="100" />
+          <Property Name="masinf" Type="varchar" MaxLength="100" />
+          <Property Name="vigencia" Type="date" />
+          <Property Name="segmento" Type="int" />
+          <Property Name="fecreg" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MULTIPRODUCTOS_SOLICITUD">
+          <Key>
+            <PropertyRef Name="registroid" />
+          </Key>
+          <Property Name="registroid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="productoid" Type="int" />
+          <Property Name="clienteid" Type="int" />
+          <Property Name="fecsol" Type="datetime" />
+          <Property Name="ipcliente" Type="varchar" MaxLength="15" />
+          <Property Name="estado" Type="int" />
+        </EntityType>
+        <EntityType Name="MULTIPRODUCTOS_TOKEN">
+          <Key>
+            <PropertyRef Name="CODIGOTOKEN" />
+          </Key>
+          <Property Name="CODIGOTOKEN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DOCUMENTO" Type="varchar" MaxLength="20" />
+          <Property Name="TOKEN" Type="int" />
+          <Property Name="VALIDADO" Type="bit" />
+          <Property Name="FECHA" Type="datetime" />
+          <Property Name="ESTADO" Type="int" />
+        </EntityType>
+        <Association Name="FK__MULTIPROD__clien__075714DC">
+          <End Role="MULTIPRODUCTOS_CLIENTE" Type="Self.MULTIPRODUCTOS_CLIENTE" Multiplicity="0..1" />
+          <End Role="MULTIPRODUCTOS_SOLICITUD" Type="Self.MULTIPRODUCTOS_SOLICITUD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MULTIPRODUCTOS_CLIENTE">
+              <PropertyRef Name="clienteid" />
+            </Principal>
+            <Dependent Role="MULTIPRODUCTOS_SOLICITUD">
+              <PropertyRef Name="clienteid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MULTIPROD__produ__0662F0A3">
+          <End Role="MULTIPRODUCTOS_PRODUCTO" Type="Self.MULTIPRODUCTOS_PRODUCTO" Multiplicity="0..1" />
+          <End Role="MULTIPRODUCTOS_SOLICITUD" Type="Self.MULTIPRODUCTOS_SOLICITUD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MULTIPRODUCTOS_PRODUCTO">
+              <PropertyRef Name="productoid" />
+            </Principal>
+            <Dependent Role="MULTIPRODUCTOS_SOLICITUD">
+              <PropertyRef Name="productoid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="SP_MULTIPRODUCTO_CONSULTAR_X_DNI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dni" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_MULTIPRODUCTO_OBTENER_PRODUCTOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_MULTIPRODUCTO_OBTENER_PRODUCTOS_SEGMENTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="segmento" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_MULTIPRODUCTO_REGISTRAR_LOG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dni" Type="varchar" Mode="In" />
+          <Parameter Name="accion" Type="int" Mode="In" />
+          <Parameter Name="detalle" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_MULTIPRODUCTO_REGISTRAR_SOLICITUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="productoid" Type="int" Mode="In" />
+          <Parameter Name="clienteid" Type="int" Mode="In" />
+          <Parameter Name="ipcliente" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_MULTIPRODUCTO_REGISTRAR_TOKEN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dni" Type="varchar" Mode="In" />
+          <Parameter Name="token" Type="int" Mode="In" />
+          <Parameter Name="validado" Type="bit" Mode="In" />
+        </Function>
+        <EntityContainer Name="panelModelStoreContainer">
+          <EntitySet Name="MULTIPRODUCTOS_CLIENTE" EntityType="Self.MULTIPRODUCTOS_CLIENTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MULTIPRODUCTOS_LOG" EntityType="Self.MULTIPRODUCTOS_LOG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MULTIPRODUCTOS_PRODUCTO" EntityType="Self.MULTIPRODUCTOS_PRODUCTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MULTIPRODUCTOS_SOLICITUD" EntityType="Self.MULTIPRODUCTOS_SOLICITUD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MULTIPRODUCTOS_TOKEN" EntityType="Self.MULTIPRODUCTOS_TOKEN" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__MULTIPROD__clien__075714DC" Association="Self.FK__MULTIPROD__clien__075714DC">
+            <End Role="MULTIPRODUCTOS_CLIENTE" EntitySet="MULTIPRODUCTOS_CLIENTE" />
+            <End Role="MULTIPRODUCTOS_SOLICITUD" EntitySet="MULTIPRODUCTOS_SOLICITUD" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MULTIPROD__produ__0662F0A3" Association="Self.FK__MULTIPROD__produ__0662F0A3">
+            <End Role="MULTIPRODUCTOS_PRODUCTO" EntitySet="MULTIPRODUCTOS_PRODUCTO" />
+            <End Role="MULTIPRODUCTOS_SOLICITUD" EntitySet="MULTIPRODUCTOS_SOLICITUD" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="panelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="MULTIPRODUCTOS_CLIENTE">
+          <Key>
+            <PropertyRef Name="clienteid" />
+          </Key>
+          <Property Name="clienteid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dni" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="nombres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="apellidos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="mail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="segmento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="celular" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="fecreg" Type="DateTime" Precision="3" />
+          <Property Name="estado" Type="Int32" />
+          <NavigationProperty Name="MULTIPRODUCTOS_SOLICITUD" Relationship="Self.FK__MULTIPROD__clien__075714DC" FromRole="MULTIPRODUCTOS_CLIENTE" ToRole="MULTIPRODUCTOS_SOLICITUD" />
+        </EntityType>
+        <EntityType Name="MULTIPRODUCTOS_PRODUCTO">
+          <Key>
+            <PropertyRef Name="productoid" />
+          </Key>
+          <Property Name="productoid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="detalle1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="detalle2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="condicion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="masinf" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="vigencia" Type="DateTime" Precision="0" />
+          <Property Name="segmento" Type="Int32" />
+          <Property Name="fecreg" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="MULTIPRODUCTOS_SOLICITUD" Relationship="Self.FK__MULTIPROD__produ__0662F0A3" FromRole="MULTIPRODUCTOS_PRODUCTO" ToRole="MULTIPRODUCTOS_SOLICITUD" />
+        </EntityType>
+        <EntityType Name="MULTIPRODUCTOS_SOLICITUD">
+          <Key>
+            <PropertyRef Name="registroid" />
+          </Key>
+          <Property Name="registroid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="productoid" Type="Int32" />
+          <Property Name="clienteid" Type="Int32" />
+          <Property Name="fecsol" Type="DateTime" Precision="3" />
+          <Property Name="ipcliente" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="Int32" />
+          <NavigationProperty Name="MULTIPRODUCTOS_CLIENTE" Relationship="Self.FK__MULTIPROD__clien__075714DC" FromRole="MULTIPRODUCTOS_SOLICITUD" ToRole="MULTIPRODUCTOS_CLIENTE" />
+          <NavigationProperty Name="MULTIPRODUCTOS_PRODUCTO" Relationship="Self.FK__MULTIPROD__produ__0662F0A3" FromRole="MULTIPRODUCTOS_SOLICITUD" ToRole="MULTIPRODUCTOS_PRODUCTO" />
+        </EntityType>
+        <Association Name="FK__MULTIPROD__clien__075714DC">
+          <End Role="MULTIPRODUCTOS_CLIENTE" Type="Self.MULTIPRODUCTOS_CLIENTE" Multiplicity="0..1" />
+          <End Role="MULTIPRODUCTOS_SOLICITUD" Type="Self.MULTIPRODUCTOS_SOLICITUD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MULTIPRODUCTOS_CLIENTE">
+              <PropertyRef Name="clienteid" />
+            </Principal>
+            <Dependent Role="MULTIPRODUCTOS_SOLICITUD">
+              <PropertyRef Name="clienteid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MULTIPROD__produ__0662F0A3">
+          <End Role="MULTIPRODUCTOS_PRODUCTO" Type="Self.MULTIPRODUCTOS_PRODUCTO" Multiplicity="0..1" />
+          <End Role="MULTIPRODUCTOS_SOLICITUD" Type="Self.MULTIPRODUCTOS_SOLICITUD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MULTIPRODUCTOS_PRODUCTO">
+              <PropertyRef Name="productoid" />
+            </Principal>
+            <Dependent Role="MULTIPRODUCTOS_SOLICITUD">
+              <PropertyRef Name="productoid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="panelEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MULTIPRODUCTOS_CLIENTE" EntityType="Self.MULTIPRODUCTOS_CLIENTE" />
+          <EntitySet Name="MULTIPRODUCTOS_PRODUCTO" EntityType="Self.MULTIPRODUCTOS_PRODUCTO" />
+          <EntitySet Name="MULTIPRODUCTOS_SOLICITUD" EntityType="Self.MULTIPRODUCTOS_SOLICITUD" />
+          <AssociationSet Name="FK__MULTIPROD__clien__075714DC" Association="Self.FK__MULTIPROD__clien__075714DC">
+            <End Role="MULTIPRODUCTOS_CLIENTE" EntitySet="MULTIPRODUCTOS_CLIENTE" />
+            <End Role="MULTIPRODUCTOS_SOLICITUD" EntitySet="MULTIPRODUCTOS_SOLICITUD" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MULTIPROD__produ__0662F0A3" Association="Self.FK__MULTIPROD__produ__0662F0A3">
+            <End Role="MULTIPRODUCTOS_PRODUCTO" EntitySet="MULTIPRODUCTOS_PRODUCTO" />
+            <End Role="MULTIPRODUCTOS_SOLICITUD" EntitySet="MULTIPRODUCTOS_SOLICITUD" />
+          </AssociationSet>
+          <FunctionImport Name="SP_MULTIPRODUCTO_CONSULTAR_X_DNI" ReturnType="Collection(panelModel.SP_MULTIPRODUCTO_CONSULTAR_X_DNI_Result)">
+          <Parameter Name="dni" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_MULTIPRODUCTO_OBTENER_PRODUCTOS" ReturnType="Collection(panelModel.SP_MULTIPRODUCTO_OBTENER_PRODUCTOS_Result)" />
+          <FunctionImport Name="SP_MULTIPRODUCTO_OBTENER_PRODUCTOS_SEGMENTO" ReturnType="Collection(panelModel.SP_MULTIPRODUCTO_OBTENER_PRODUCTOS_SEGMENTO_Result)">
+          <Parameter Name="segmento" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_MULTIPRODUCTO_REGISTRAR_LOG">
+            <Parameter Name="dni" Mode="In" Type="String" />
+            <Parameter Name="accion" Mode="In" Type="Int32" />
+            <Parameter Name="detalle" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_MULTIPRODUCTO_REGISTRAR_SOLICITUD">
+            <Parameter Name="productoid" Mode="In" Type="Int32" />
+            <Parameter Name="clienteid" Mode="In" Type="Int32" />
+            <Parameter Name="ipcliente" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="MULTIPRODUCTOS_LOG" EntityType="panelModel.MULTIPRODUCTOS_LOG" />
+          <EntitySet Name="MULTIPRODUCTOS_TOKEN" EntityType="panelModel.MULTIPRODUCTOS_TOKEN" />
+          <FunctionImport Name="SP_MULTIPRODUCTO_REGISTRAR_TOKEN">
+            <Parameter Name="dni" Mode="In" Type="String" />
+            <Parameter Name="token" Mode="In" Type="Int32" />
+            <Parameter Name="validado" Mode="In" Type="Boolean" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="SP_MULTIPRODUCTO_CONSULTAR_X_DNI_Result">
+          <Property Type="Int32" Name="clienteid" Nullable="false" />
+          <Property Type="String" Name="dni" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="nombres" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="apellidos" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="mail" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="segmento" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="celular" Nullable="true" MaxLength="10" />
+          <Property Type="DateTime" Name="fecreg" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="estado" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_MULTIPRODUCTO_OBTENER_PRODUCTOS_Result">
+          <Property Type="Int32" Name="productoid" Nullable="false" />
+          <Property Type="String" Name="descripcion" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="detalle1" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="detalle2" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="condicion" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="masinf" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="vigencia" Nullable="true" />
+          <Property Type="Int32" Name="segmento" Nullable="true" />
+          <Property Type="DateTime" Name="fecreg" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="SP_MULTIPRODUCTO_OBTENER_PRODUCTOS_SEGMENTO_Result">
+          <Property Type="Int32" Name="productoid" Nullable="false" />
+          <Property Type="String" Name="descripcion" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="detalle1" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="detalle2" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="condicion" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="masinf" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="vigencia" Nullable="true" />
+          <Property Type="Int32" Name="segmento" Nullable="true" />
+          <Property Type="DateTime" Name="fecreg" Nullable="true" Precision="23" />
+        </ComplexType>
+        <EntityType Name="MULTIPRODUCTOS_LOG">
+          <Key>
+            <PropertyRef Name="idregistro" />
+          </Key>
+          <Property Name="idregistro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dni" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="accion" Type="Int32" />
+          <Property Name="detalle" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="fecha" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="MULTIPRODUCTOS_TOKEN">
+          <Key>
+            <PropertyRef Name="CODIGOTOKEN" />
+          </Key>
+          <Property Name="CODIGOTOKEN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DOCUMENTO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TOKEN" Type="Int32" />
+          <Property Name="VALIDADO" Type="Boolean" />
+          <Property Name="FECHA" Type="DateTime" Precision="3" />
+          <Property Name="ESTADO" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="panelModelStoreContainer" CdmEntityContainer="panelEntities">
+          <EntitySetMapping Name="MULTIPRODUCTOS_CLIENTE">
+            <EntityTypeMapping TypeName="panelModel.MULTIPRODUCTOS_CLIENTE">
+              <MappingFragment StoreEntitySet="MULTIPRODUCTOS_CLIENTE">
+                <ScalarProperty Name="clienteid" ColumnName="clienteid" />
+                <ScalarProperty Name="dni" ColumnName="dni" />
+                <ScalarProperty Name="nombres" ColumnName="nombres" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="segmento" ColumnName="segmento" />
+                <ScalarProperty Name="celular" ColumnName="celular" />
+                <ScalarProperty Name="fecreg" ColumnName="fecreg" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MULTIPRODUCTOS_PRODUCTO">
+            <EntityTypeMapping TypeName="panelModel.MULTIPRODUCTOS_PRODUCTO">
+              <MappingFragment StoreEntitySet="MULTIPRODUCTOS_PRODUCTO">
+                <ScalarProperty Name="productoid" ColumnName="productoid" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="detalle1" ColumnName="detalle1" />
+                <ScalarProperty Name="detalle2" ColumnName="detalle2" />
+                <ScalarProperty Name="condicion" ColumnName="condicion" />
+                <ScalarProperty Name="masinf" ColumnName="masinf" />
+                <ScalarProperty Name="vigencia" ColumnName="vigencia" />
+                <ScalarProperty Name="segmento" ColumnName="segmento" />
+                <ScalarProperty Name="fecreg" ColumnName="fecreg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MULTIPRODUCTOS_SOLICITUD">
+            <EntityTypeMapping TypeName="panelModel.MULTIPRODUCTOS_SOLICITUD">
+              <MappingFragment StoreEntitySet="MULTIPRODUCTOS_SOLICITUD">
+                <ScalarProperty Name="registroid" ColumnName="registroid" />
+                <ScalarProperty Name="productoid" ColumnName="productoid" />
+                <ScalarProperty Name="clienteid" ColumnName="clienteid" />
+                <ScalarProperty Name="fecsol" ColumnName="fecsol" />
+                <ScalarProperty Name="ipcliente" ColumnName="ipcliente" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_MULTIPRODUCTO_CONSULTAR_X_DNI" FunctionName="panelModel.Store.SP_MULTIPRODUCTO_CONSULTAR_X_DNI">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="panelModel.SP_MULTIPRODUCTO_CONSULTAR_X_DNI_Result">
+                <ScalarProperty Name="clienteid" ColumnName="clienteid" />
+                <ScalarProperty Name="dni" ColumnName="dni" />
+                <ScalarProperty Name="nombres" ColumnName="nombres" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="segmento" ColumnName="segmento" />
+                <ScalarProperty Name="celular" ColumnName="celular" />
+                <ScalarProperty Name="fecreg" ColumnName="fecreg" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_MULTIPRODUCTO_OBTENER_PRODUCTOS" FunctionName="panelModel.Store.SP_MULTIPRODUCTO_OBTENER_PRODUCTOS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="panelModel.SP_MULTIPRODUCTO_OBTENER_PRODUCTOS_Result">
+                <ScalarProperty Name="productoid" ColumnName="productoid" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="detalle1" ColumnName="detalle1" />
+                <ScalarProperty Name="detalle2" ColumnName="detalle2" />
+                <ScalarProperty Name="condicion" ColumnName="condicion" />
+                <ScalarProperty Name="masinf" ColumnName="masinf" />
+                <ScalarProperty Name="vigencia" ColumnName="vigencia" />
+                <ScalarProperty Name="segmento" ColumnName="segmento" />
+                <ScalarProperty Name="fecreg" ColumnName="fecreg" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_MULTIPRODUCTO_OBTENER_PRODUCTOS_SEGMENTO" FunctionName="panelModel.Store.SP_MULTIPRODUCTO_OBTENER_PRODUCTOS_SEGMENTO">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="panelModel.SP_MULTIPRODUCTO_OBTENER_PRODUCTOS_SEGMENTO_Result">
+                <ScalarProperty Name="productoid" ColumnName="productoid" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="detalle1" ColumnName="detalle1" />
+                <ScalarProperty Name="detalle2" ColumnName="detalle2" />
+                <ScalarProperty Name="condicion" ColumnName="condicion" />
+                <ScalarProperty Name="masinf" ColumnName="masinf" />
+                <ScalarProperty Name="vigencia" ColumnName="vigencia" />
+                <ScalarProperty Name="segmento" ColumnName="segmento" />
+                <ScalarProperty Name="fecreg" ColumnName="fecreg" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_MULTIPRODUCTO_REGISTRAR_LOG" FunctionName="panelModel.Store.SP_MULTIPRODUCTO_REGISTRAR_LOG" />
+          <FunctionImportMapping FunctionImportName="SP_MULTIPRODUCTO_REGISTRAR_SOLICITUD" FunctionName="panelModel.Store.SP_MULTIPRODUCTO_REGISTRAR_SOLICITUD" />
+          <EntitySetMapping Name="MULTIPRODUCTOS_LOG">
+            <EntityTypeMapping TypeName="panelModel.MULTIPRODUCTOS_LOG">
+              <MappingFragment StoreEntitySet="MULTIPRODUCTOS_LOG">
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="detalle" ColumnName="detalle" />
+                <ScalarProperty Name="accion" ColumnName="accion" />
+                <ScalarProperty Name="dni" ColumnName="dni" />
+                <ScalarProperty Name="idregistro" ColumnName="idregistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MULTIPRODUCTOS_TOKEN">
+            <EntityTypeMapping TypeName="panelModel.MULTIPRODUCTOS_TOKEN">
+              <MappingFragment StoreEntitySet="MULTIPRODUCTOS_TOKEN">
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="VALIDADO" ColumnName="VALIDADO" />
+                <ScalarProperty Name="TOKEN" ColumnName="TOKEN" />
+                <ScalarProperty Name="DOCUMENTO" ColumnName="DOCUMENTO" />
+                <ScalarProperty Name="CODIGOTOKEN" ColumnName="CODIGOTOKEN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_MULTIPRODUCTO_REGISTRAR_TOKEN" FunctionName="panelModel.Store.SP_MULTIPRODUCTO_REGISTRAR_TOKEN" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
