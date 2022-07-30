@@ -1,0 +1,31 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "c0c4559c-6b30-4756-9354-6af3b0460c2a": {
+      "ProjectGuid": "c0c4559c-6b30-4756-9354-6af3b0460c2a",
+      "DisplayName": "BanBif.Multiproducto.DA",
+      "ColorIndex": 0
+    },
+    "f77a1417-5205-4fe7-8a30-22e962021731": {
+      "ProjectGuid": "f77a1417-5205-4fe7-8a30-22e962021731",
+      "DisplayName": "BanBif.Multiproducto.BL",
+      "ColorIndex": 1
+    },
+    "7f7afa9f-fec1-4733-aa3e-798e72d0a800": {
+      "ProjectGuid": "7f7afa9f-fec1-4733-aa3e-798e72d0a800",
+      "DisplayName": "BanBif.Multiproducto.APP",
+      "ColorIndex": 2
+    },
+    "ca47c15f-adab-4113-a099-6fe52df72418": {
+      "ProjectGuid": "ca47c15f-adab-4113-a099-6fe52df72418",
+      "DisplayName": "BanBif.Multiproducto.API",
+      "ColorIndex": 3
+    },
+    "4f7912a7-e26d-433a-b39a-0cc8c638c151": {
+      "ProjectGuid": "4f7912a7-e26d-433a-b39a-0cc8c638c151",
+      "DisplayName": "BanBif.Multiproducto.BE",
+      "ColorIndex": 4
+    }
+  },
+  "NextColorIndex": 5
+}
