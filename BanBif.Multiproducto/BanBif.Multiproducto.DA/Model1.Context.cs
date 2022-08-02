@@ -27,20 +27,12 @@ namespace BanBif.Multiproducto.DA
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<MULTIPRODUCTOS_CLIENTE> MULTIPRODUCTOS_CLIENTE { get; set; }
         public virtual DbSet<MULTIPRODUCTOS_PRODUCTO> MULTIPRODUCTOS_PRODUCTO { get; set; }
         public virtual DbSet<MULTIPRODUCTOS_SOLICITUD> MULTIPRODUCTOS_SOLICITUD { get; set; }
         public virtual DbSet<MULTIPRODUCTOS_LOG> MULTIPRODUCTOS_LOG { get; set; }
         public virtual DbSet<MULTIPRODUCTOS_TOKEN> MULTIPRODUCTOS_TOKEN { get; set; }
-    
-        public virtual ObjectResult<SP_MULTIPRODUCTO_CONSULTAR_X_DNI_Result> SP_MULTIPRODUCTO_CONSULTAR_X_DNI(string dni)
-        {
-            var dniParameter = dni != null ?
-                new ObjectParameter("dni", dni) :
-                new ObjectParameter("dni", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_MULTIPRODUCTO_CONSULTAR_X_DNI_Result>("SP_MULTIPRODUCTO_CONSULTAR_X_DNI", dniParameter);
-        }
+        public virtual DbSet<MULTIPRODUCTOS_LOGS> MULTIPRODUCTOS_LOGS { get; set; }
+        public virtual DbSet<MULTIPRODUCTOS_CLIENTE> MULTIPRODUCTOS_CLIENTE { get; set; }
     
         public virtual ObjectResult<SP_MULTIPRODUCTO_OBTENER_PRODUCTOS_Result> SP_MULTIPRODUCTO_OBTENER_PRODUCTOS()
         {
@@ -105,6 +97,40 @@ namespace BanBif.Multiproducto.DA
                 new ObjectParameter("validado", typeof(bool));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_MULTIPRODUCTO_REGISTRAR_TOKEN", dniParameter, tokenParameter, validadoParameter);
+        }
+    
+        public virtual int SP_MULTIPRODUCTO_REGISTRAR_LOGS(string dni, string codigounico, Nullable<int> accion, string detalle, string ip_cliente)
+        {
+            var dniParameter = dni != null ?
+                new ObjectParameter("dni", dni) :
+                new ObjectParameter("dni", typeof(string));
+    
+            var codigounicoParameter = codigounico != null ?
+                new ObjectParameter("codigounico", codigounico) :
+                new ObjectParameter("codigounico", typeof(string));
+    
+            var accionParameter = accion.HasValue ?
+                new ObjectParameter("accion", accion) :
+                new ObjectParameter("accion", typeof(int));
+    
+            var detalleParameter = detalle != null ?
+                new ObjectParameter("detalle", detalle) :
+                new ObjectParameter("detalle", typeof(string));
+    
+            var ip_clienteParameter = ip_cliente != null ?
+                new ObjectParameter("ip_cliente", ip_cliente) :
+                new ObjectParameter("ip_cliente", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_MULTIPRODUCTO_REGISTRAR_LOGS", dniParameter, codigounicoParameter, accionParameter, detalleParameter, ip_clienteParameter);
+        }
+    
+        public virtual ObjectResult<SP_MULTIPRODUCTO_CONSULTAR_X_DNI_Result1> SP_MULTIPRODUCTO_CONSULTAR_X_DNI(string dni)
+        {
+            var dniParameter = dni != null ?
+                new ObjectParameter("dni", dni) :
+                new ObjectParameter("dni", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_MULTIPRODUCTO_CONSULTAR_X_DNI_Result1>("SP_MULTIPRODUCTO_CONSULTAR_X_DNI", dniParameter);
         }
     }
 }

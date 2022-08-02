@@ -141,7 +141,7 @@ namespace BanBif.Multiproducto.BL
             {
 
                 var objAD = new Log_AD();
-                var resultado = objAD.RegistrarLog(request);
+                var resultado = objAD.RegistrarLogs(request);
                 if (resultado.Data!= null)
                 {
                     response.Result = true;
@@ -222,13 +222,15 @@ namespace BanBif.Multiproducto.BL
             strHTML += "<td width='570' style='font-size: 11px; text-align: justify; color:#303030; padding-left: 30px;' >";
             if (tipo == "A")
             {
-                strHTML += "Ingresa el siguiente código para confirmar tu identidad: " + codigoValidacion + ".";
+                strHTML += "Ingresa el siguiente código para confirmar tu identidad: ";
+                strHTML += "<br>";
+                strHTML += "<h1><center> " + codigoValidacion + "</center></h1>";                
             }
             else
             {
                 strHTML += "Ingresa el siguiente código para confirmar tu solicitud de desafiliación: " + codigoValidacion + ".";
             }
-            strHTML += "<br><br>";
+            strHTML += "<br>";
             strHTML += "Para garantizar la seguridad de tu correo electrónico, no respondas a este mensaje.";
             strHTML += "<br><br>";
             strHTML += "Atentamente,";

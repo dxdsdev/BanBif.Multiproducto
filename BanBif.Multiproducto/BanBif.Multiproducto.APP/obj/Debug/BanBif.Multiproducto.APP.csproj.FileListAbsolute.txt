@@ -35,7 +35,11 @@ C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiprodu
 C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\Newtonsoft.Json.dll
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\System.Net.Http.Formatting.dll
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\System.Web.Cors.dll
 C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\System.Web.Helpers.dll
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\System.Web.Http.Cors.dll
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\System.Web.Http.dll
 C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\System.Web.Mvc.dll
 C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\System.Web.Optimization.dll
 C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\System.Web.Razor.dll
@@ -48,6 +52,10 @@ C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiprodu
 C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\BanBif.Multiproducto.BL.pdb
 C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\EntityFramework.xml
 C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\EntityFramework.SqlServer.xml
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\Newtonsoft.Json.xml
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\System.Net.Http.Formatting.xml
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\System.Web.Http.xml
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\System.Web.Http.Cors.xml
 C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\System.Web.Helpers.xml
 C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\System.Web.Mvc.xml
 C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\System.Web.Optimization.xml
@@ -55,7 +63,6 @@ C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiprodu
 C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\System.Web.WebPages.xml
 C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\System.Web.WebPages.Deployment.xml
 C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\System.Web.WebPages.Razor.xml
-C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\Newtonsoft.Json.xml
 C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\Antlr3.Runtime.pdb
 C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\BanBif.Multiproducto.DA.pdb
@@ -67,15 +74,8 @@ C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiprodu
 C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\es\System.Web.WebPages.resources.dll
 C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\obj\Debug\BanBif.Multiproducto.APP.csproj.AssemblyReference.cache
 C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\obj\Debug\BanBif.Multiproducto.APP.csproj.CoreCompileInputs.cache
 C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\obj\Debug\BanBif.Multiproducto.APP.csproj.CopyComplete
 C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\obj\Debug\BanBif.Multiproducto.APP.dll
 C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\obj\Debug\BanBif.Multiproducto.APP.pdb
-C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\System.Net.Http.Formatting.dll
-C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\System.Web.Cors.dll
-C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\System.Web.Http.Cors.dll
-C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\System.Web.Http.dll
-C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\System.Net.Http.Formatting.xml
-C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\System.Web.Http.xml
-C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\bin\System.Web.Http.Cors.xml
-C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.APP\obj\Debug\BanBif.Multiproducto.APP.csproj.AssemblyReference.cache

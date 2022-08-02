@@ -9,7 +9,7 @@
     <Property Name="nombres" Type="varchar" MaxLength="100" />
     <Property Name="apellidos" Type="varchar" MaxLength="100" />
     <Property Name="mail" Type="varchar" MaxLength="100" />
-    <Property Name="segmento" Type="varchar" MaxLength="30" />
+    <Property Name="segmento" Type="int" />
     <Property Name="celular" Type="varchar" MaxLength="10" />
     <Property Name="fecreg" Type="datetime" />
     <Property Name="estado" Type="int" />
@@ -23,6 +23,18 @@
     <Property Name="accion" Type="int" />
     <Property Name="detalle" Type="varchar" MaxLength="300" />
     <Property Name="fecha" Type="datetime" />
+  </EntityType>
+  <EntityType Name="MULTIPRODUCTOS_LOGS">
+    <Key>
+      <PropertyRef Name="idregistro" />
+    </Key>
+    <Property Name="idregistro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dni" Type="varchar" MaxLength="12" />
+    <Property Name="codigounico" Type="varchar" MaxLength="50" />
+    <Property Name="accion" Type="int" />
+    <Property Name="detalle" Type="varchar" MaxLength="4000" />
+    <Property Name="fecha" Type="datetime" />
+    <Property Name="ip_cliente" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="MULTIPRODUCTOS_PRODUCTO">
     <Key>
@@ -60,7 +72,7 @@
     <Property Name="FECHA" Type="datetime" />
     <Property Name="ESTADO" Type="int" />
   </EntityType>
-  <Association Name="FK__MULTIPROD__clien__075714DC">
+  <Association Name="FK__MULTIPROD__clien__725D8EA4">
     <End Role="MULTIPRODUCTOS_CLIENTE" Type="Self.MULTIPRODUCTOS_CLIENTE" Multiplicity="0..1" />
     <End Role="MULTIPRODUCTOS_SOLICITUD" Type="Self.MULTIPRODUCTOS_SOLICITUD" Multiplicity="*" />
     <ReferentialConstraint>
@@ -72,7 +84,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__MULTIPROD__produ__0662F0A3">
+  <Association Name="FK__MULTIPROD__produ__7351B2DD">
     <End Role="MULTIPRODUCTOS_PRODUCTO" Type="Self.MULTIPRODUCTOS_PRODUCTO" Multiplicity="0..1" />
     <End Role="MULTIPRODUCTOS_SOLICITUD" Type="Self.MULTIPRODUCTOS_SOLICITUD" Multiplicity="*" />
     <ReferentialConstraint>
@@ -96,6 +108,13 @@
     <Parameter Name="accion" Type="int" Mode="In" />
     <Parameter Name="detalle" Type="varchar" Mode="In" />
   </Function>
+  <Function Name="SP_MULTIPRODUCTO_REGISTRAR_LOGS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="dni" Type="varchar" Mode="In" />
+    <Parameter Name="codigounico" Type="varchar" Mode="In" />
+    <Parameter Name="accion" Type="int" Mode="In" />
+    <Parameter Name="detalle" Type="varchar" Mode="In" />
+    <Parameter Name="ip_cliente" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="SP_MULTIPRODUCTO_REGISTRAR_SOLICITUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="productoid" Type="int" Mode="In" />
     <Parameter Name="clienteid" Type="int" Mode="In" />
@@ -109,14 +128,15 @@
   <EntityContainer Name="panelModelStoreContainer">
     <EntitySet Name="MULTIPRODUCTOS_CLIENTE" EntityType="Self.MULTIPRODUCTOS_CLIENTE" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MULTIPRODUCTOS_LOG" EntityType="Self.MULTIPRODUCTOS_LOG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MULTIPRODUCTOS_LOGS" EntityType="Self.MULTIPRODUCTOS_LOGS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MULTIPRODUCTOS_PRODUCTO" EntityType="Self.MULTIPRODUCTOS_PRODUCTO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MULTIPRODUCTOS_SOLICITUD" EntityType="Self.MULTIPRODUCTOS_SOLICITUD" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MULTIPRODUCTOS_TOKEN" EntityType="Self.MULTIPRODUCTOS_TOKEN" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__MULTIPROD__clien__075714DC" Association="Self.FK__MULTIPROD__clien__075714DC">
+    <AssociationSet Name="FK__MULTIPROD__clien__725D8EA4" Association="Self.FK__MULTIPROD__clien__725D8EA4">
       <End Role="MULTIPRODUCTOS_CLIENTE" EntitySet="MULTIPRODUCTOS_CLIENTE" />
       <End Role="MULTIPRODUCTOS_SOLICITUD" EntitySet="MULTIPRODUCTOS_SOLICITUD" />
     </AssociationSet>
-    <AssociationSet Name="FK__MULTIPROD__produ__0662F0A3" Association="Self.FK__MULTIPROD__produ__0662F0A3">
+    <AssociationSet Name="FK__MULTIPROD__produ__7351B2DD" Association="Self.FK__MULTIPROD__produ__7351B2DD">
       <End Role="MULTIPRODUCTOS_PRODUCTO" EntitySet="MULTIPRODUCTOS_PRODUCTO" />
       <End Role="MULTIPRODUCTOS_SOLICITUD" EntitySet="MULTIPRODUCTOS_SOLICITUD" />
     </AssociationSet>

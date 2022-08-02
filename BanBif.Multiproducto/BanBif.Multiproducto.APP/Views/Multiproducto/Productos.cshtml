@@ -151,7 +151,7 @@
                 }
 
                 .tarjeta {
-                    padding: 25px;
+                    padding-top: 10px;
                     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
                     max-width: 300px;
                     margin: auto;
@@ -211,16 +211,13 @@
 
     </section>
 
-    <section id="ldg_crm_form">
-        
+    <section id="ldg_crm_form">        
 
             <h2> <strong id="lblNameSession"> </strong></h2>
             <p>Ante cualquier duda o consulta, no dudes en comunicarte con cualquiera de nuestros canales oficiales</p>
             <p>Banca Telefónica 631-9000(Lima) o 0-801-0-0456(Provincias) o visitanos en cualquiera de nuestras oficinas a nivel nacional</p>
             <div class="formulario">
-
             </div>
-
     </section>
 
     
@@ -247,7 +244,7 @@
         function RegistrarLog(request) {
 
             request.CodigoUnico = sessionStorage.UID;
-            request.IpCliente = sessionStorage.IP_CLIENTE;
+            request.ip_cliente = sessionStorage.IP_CLIENTE;
 
             sessionStorage.setItem("URL", "@ViewBag.URL");
             $.ajax({
@@ -263,6 +260,18 @@
                     console.log(response);
                 }
             });
+        }
+
+        function RegistrarLogProductos(url) {
+
+            var LogRequest = {};
+            LogRequest.dni = sessionStorage.dni;
+            LogRequest.accion = 5;
+            LogRequest.detalle = "PROCESO: SELECCION DE PRODUCTO | STATUS: TRUE | URL: " +url ;            
+            LogRequest.DetalleLog = "PROCESO: SELECCION DE PRODUCTO | STATUS: TRUE | URL: " + url;
+
+            RegistrarLog(LogRequest);
+
         }
 
 
@@ -302,11 +311,10 @@
                                                     '<p class="price">' + array[i].detalle1 +'</p>'+
                                                     '<p>'+array[i].detalle2+'</p>'+
                                                     '<p>'+array[i].condicion+'</p>'+
-                                                    '<p><button>¡La quiero!</button></p>'+
-                                                    '<p><a href=#>'+array[i].masinf+'</a></p>'+
-                                                    '<p>Vigencia hasta el '+moment(array[i].vigencia).format('DD-MM-YYYY')+'</p>'+
-                                                '</div >';
-
+                                                    '<p><a onclick="RegistrarLogProductos(\''+array[i].masinf+'\')" href="'+array[i].masinf +'" target="_blank"><button>¡La quiero!</button></a></p>'+
+                                                    //'<p><a href=#>'+array[i].masinf+'</a></p>'+
+                                                    //'<p>Vigencia hasta el '+moment(array[i].vigencia).format('DD-MM-YYYY')+'</p>'+
+                                                '</div>';
 
                             var containerTarjetas = document.getElementById("containerTarjetas");
                             containerTarjetas.innerHTML +=htmltarjeta;
@@ -315,15 +323,6 @@
                         }
                     }
                 }
-            });
-        }
-
-
-
-        function GenerarUID() {
-            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-                var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-                return v.toString(16);
             });
         }
 
@@ -401,5 +400,4 @@
 
 </body>
 
-</html>
 </html>

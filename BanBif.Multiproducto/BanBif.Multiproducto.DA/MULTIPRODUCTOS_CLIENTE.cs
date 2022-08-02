@@ -25,7 +25,7 @@ namespace BanBif.Multiproducto.DA
         public string nombres { get; set; }
         public string apellidos { get; set; }
         public string mail { get; set; }
-        public string segmento { get; set; }
+        public Nullable<int> segmento { get; set; }
         public string celular { get; set; }
         public Nullable<System.DateTime> fecreg { get; set; }
         public Nullable<int> estado { get; set; }

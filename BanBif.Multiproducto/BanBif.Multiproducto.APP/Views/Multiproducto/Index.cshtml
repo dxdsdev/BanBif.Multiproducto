@@ -93,22 +93,22 @@
                         </div>
                         @*<div class="card ml-2 mr-2">
 
-                            <div class="card-body">
-                                <p>En BanBif, queremos acompañarte a realizar todas tus metas, tenemos las mejores opciones para ayudarte a crecer.</p>
+                                <div class="card-body">
+                                    <p>En BanBif, queremos acompañarte a realizar todas tus metas, tenemos las mejores opciones para ayudarte a crecer.</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card ml-2 mr-2">
+                            <div class="card ml-2 mr-2">
 
-                            <div class="card-body">
-                                <p>En BanBif, queremos acompañarte a realizar todas tus metas, tenemos las mejores opciones para ayudarte a crecer.</p>
+                                <div class="card-body">
+                                    <p>En BanBif, queremos acompañarte a realizar todas tus metas, tenemos las mejores opciones para ayudarte a crecer.</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card ml-2 mr-2">
+                            <div class="card ml-2 mr-2">
 
-                            <div class="card-body">
-                                <p>En BanBif, queremos acompañarte a realizar todas tus metas, tenemos las mejores opciones para ayudarte a crecer.</p>
-                            </div>
-                        </div>*@
+                                <div class="card-body">
+                                    <p>En BanBif, queremos acompañarte a realizar todas tus metas, tenemos las mejores opciones para ayudarte a crecer.</p>
+                                </div>
+                            </div>*@
 
                     </div>
                 </div>
@@ -158,12 +158,14 @@
                         </div>
                         <div class="modal-body">
                             <p class="mb-0" style="margin-bottom: 0">Ingresa el código enviado a tu correo electrónico</p>
+                            <p class="mb-0" style="margin-bottom: 0" id="lblcorreosesion">correoelectronico@gmail.com</p>
 
                             <div class="input-box col-xs-12 col-md-8 col-sm-8 auto-0 text-center mb-1">
                                 <input id="token" type="text" name="token" maxlength="4" onkeypress="return soloNumeros(event)" required autocomplete="off">
                             </div>
                             <a id="ValidaToken" onclick="ValidarToken()" type="button" class="btn btn-next">Continuar</a>
-                            <br><span>¿No recibiste el código? <a href="#" onclick="EnviarToken()" >Reenviar código</a></span>
+                            <br><span>¿No recibiste el código? <a href="#" onclick="EnviarToken()">Reenviar código</a></span>
+                            <br><span>(*)En Caso tu correo registrado no sea el vigente, solicita la actualización a través de nuestra banca telfónica al 631-9000(Lima) o 0-801-0-0456(Provincias) o en cualquiera de nuestras oficinas a nivel nacional</span>
                         </div>
 
                     </div>
@@ -179,37 +181,12 @@
         </div>
     </section>
 
-    @*CardsProductos*@
     <br />
     <br />
     <br />
     <br />
     <br />
     <br />
-
-
-    @*<section id="ldg_crm_form">
-        <div id="formfloat" class="form-box col-xs-12 col-sm-10 col-md-5 col-lg-5">
-
-            <h2> <strong id="lblNameSession"> </strong></h2>
-            <p>A Continuación, te presentamos las ofertas que tenemos para ti</p>
-            <div class="formulario">
-                
-            </div>
-
-            <div style="width:304px; height:78px; margin:10px auto">
-                                
-                <div class="f1-buttons">
-                    <a id="mymodal" style="float:none" class="btn btn-next bt-1">Continuar</a>
-                </div>
-                <div id="process-data-loader" class="notdisplay">
-                    <img src="~/assets/img/ajax-loader.gif" />
-                    <label>Validando credenciales...</label>
-                </div>
-            </div>
-
-        </div>
-    </section>*@
 
 
     <!-- Javascript -->
@@ -223,6 +200,9 @@
 
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <script type="text/javascript" src="~/assets/mailmask.js"></script>
+
     <!--[if lt IE 10]>
         <script src="assets/js/placeholder.js"></script>
     <![endif]-->
@@ -234,7 +214,7 @@
         function RegistrarLog(request) {
 
             request.CodigoUnico = sessionStorage.UID;
-            request.IpCliente = sessionStorage.IP_CLIENTE;
+            request.ip_cliente = sessionStorage.IP_CLIENTE;
 
             sessionStorage.setItem("URL", "@ViewBag.URL");
             $.ajax({
@@ -275,7 +255,7 @@
                     var LogRequest = {};
                     LogRequest.dni = sessionStorage.dni;
                     LogRequest.accion = 2;
-                    LogRequest.detalle = "PROCESO: TOKEN ENVIADO | STATUS: TRUE | JSON: " + JSON.stringify(response);                                      
+                    LogRequest.detalle = "PROCESO: TOKEN ENVIADO | STATUS: TRUE | JSON: " + JSON.stringify(response);
                     RegistrarLog(LogRequest);
 
 
@@ -290,7 +270,7 @@
             var token = document.getElementById('token');
             request.Documento = sessionStorage.dni;
             request.Token = token.value;
-            request.Estado = 1;            
+            request.Estado = 1;
             sessionStorage.setItem("URL", "@ViewBag.URL");
             $.ajax({
                 url: sessionStorage.URL + '/Multiproducto/ValidarToken',
@@ -304,7 +284,7 @@
                     console.log(response);
                     if (response.Result) {
 
-                        
+
                         sessionStorage.setItem("validado", 1);
 
                         //Registrando Log
@@ -354,13 +334,12 @@
         $(document).ready(function () {
 
 
-            //var lblNameSession = document.getElementById("lblNameSession")
-            //lblNameSession.innerHTML = 'Gracias por confiar en nosotros ' + sessionStorage.nombres;
+
 
             $("#mymodal").click(function () {
                 /*$('#mymodal').hide();*/
                 if ($("#documento").val() == "") {
-                   
+
                     swal("¡Hola!", "Por favor, debes de ingresar el número de tu DNI.", "error");
                     $('#process-data-loader').hide();
                     return false;
@@ -388,7 +367,7 @@
                     oBE.FlagConsentimiento = 1;
                 }
                 else {
-                    swal("¡Hola!", "Para continuar debe aceptar las políticas de tratamiento de datos.", "error");
+                    //swal("¡Hola!", "Para continuar debe aceptar las políticas de tratamiento de datos.", "error");
                     oBE.FlagConsentimiento = 0;
                 }
 
@@ -415,7 +394,13 @@
                             sessionStorage.setItem("clienteid", response.Data.clienteid);
                             sessionStorage.setItem("celular", response.Data.celular);
 
-                            //swal("¡Hola!", "Bienvenido(a) " + response.Data.nombres, "success");                            
+                            var lblcorreosesion = document.getElementById("lblcorreosesion")
+                            lblcorreosesion.innerHTML = MascaraAsteriscosMail(sessionStorage.correo);
+
+
+
+
+                            //swal("¡Hola!", "Bienvenido(a) " + response.Data.nombres, "success");
                             $("#myModal").modal();
                             //var myModal = document.getElementById("myModal");
                             //myModal.classList.remove("fade");
@@ -431,7 +416,7 @@
 
                             RegistrarLog(LogRequest);
 
-                            
+
                             EnviarToken();
 
 

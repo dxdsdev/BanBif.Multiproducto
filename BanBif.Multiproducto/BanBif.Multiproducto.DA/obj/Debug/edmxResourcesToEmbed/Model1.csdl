@@ -1,20 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="panelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="MULTIPRODUCTOS_CLIENTE">
-    <Key>
-      <PropertyRef Name="clienteid" />
-    </Key>
-    <Property Name="clienteid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="dni" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-    <Property Name="nombres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="apellidos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="mail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="segmento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="celular" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="fecreg" Type="DateTime" Precision="3" />
-    <Property Name="estado" Type="Int32" />
-    <NavigationProperty Name="MULTIPRODUCTOS_SOLICITUD" Relationship="Self.FK__MULTIPROD__clien__075714DC" FromRole="MULTIPRODUCTOS_CLIENTE" ToRole="MULTIPRODUCTOS_SOLICITUD" />
-  </EntityType>
   <EntityType Name="MULTIPRODUCTOS_PRODUCTO">
     <Key>
       <PropertyRef Name="productoid" />
@@ -40,21 +25,9 @@
     <Property Name="fecsol" Type="DateTime" Precision="3" />
     <Property Name="ipcliente" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
     <Property Name="estado" Type="Int32" />
-    <NavigationProperty Name="MULTIPRODUCTOS_CLIENTE" Relationship="Self.FK__MULTIPROD__clien__075714DC" FromRole="MULTIPRODUCTOS_SOLICITUD" ToRole="MULTIPRODUCTOS_CLIENTE" />
     <NavigationProperty Name="MULTIPRODUCTOS_PRODUCTO" Relationship="Self.FK__MULTIPROD__produ__0662F0A3" FromRole="MULTIPRODUCTOS_SOLICITUD" ToRole="MULTIPRODUCTOS_PRODUCTO" />
+    <NavigationProperty Name="MULTIPRODUCTOS_CLIENTE" Relationship="panelModel.FK__MULTIPROD__clien__725D8EA4" FromRole="MULTIPRODUCTOS_SOLICITUD" ToRole="MULTIPRODUCTOS_CLIENTE" />
   </EntityType>
-  <Association Name="FK__MULTIPROD__clien__075714DC">
-    <End Role="MULTIPRODUCTOS_CLIENTE" Type="Self.MULTIPRODUCTOS_CLIENTE" Multiplicity="0..1" />
-    <End Role="MULTIPRODUCTOS_SOLICITUD" Type="Self.MULTIPRODUCTOS_SOLICITUD" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MULTIPRODUCTOS_CLIENTE">
-        <PropertyRef Name="clienteid" />
-      </Principal>
-      <Dependent Role="MULTIPRODUCTOS_SOLICITUD">
-        <PropertyRef Name="clienteid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__MULTIPROD__produ__0662F0A3">
     <End Role="MULTIPRODUCTOS_PRODUCTO" Type="Self.MULTIPRODUCTOS_PRODUCTO" Multiplicity="0..1" />
     <End Role="MULTIPRODUCTOS_SOLICITUD" Type="Self.MULTIPRODUCTOS_SOLICITUD" Multiplicity="*" />
@@ -68,20 +41,12 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="panelEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="MULTIPRODUCTOS_CLIENTE" EntityType="Self.MULTIPRODUCTOS_CLIENTE" />
     <EntitySet Name="MULTIPRODUCTOS_PRODUCTO" EntityType="Self.MULTIPRODUCTOS_PRODUCTO" />
     <EntitySet Name="MULTIPRODUCTOS_SOLICITUD" EntityType="Self.MULTIPRODUCTOS_SOLICITUD" />
-    <AssociationSet Name="FK__MULTIPROD__clien__075714DC" Association="Self.FK__MULTIPROD__clien__075714DC">
-      <End Role="MULTIPRODUCTOS_CLIENTE" EntitySet="MULTIPRODUCTOS_CLIENTE" />
-      <End Role="MULTIPRODUCTOS_SOLICITUD" EntitySet="MULTIPRODUCTOS_SOLICITUD" />
-    </AssociationSet>
     <AssociationSet Name="FK__MULTIPROD__produ__0662F0A3" Association="Self.FK__MULTIPROD__produ__0662F0A3">
       <End Role="MULTIPRODUCTOS_PRODUCTO" EntitySet="MULTIPRODUCTOS_PRODUCTO" />
       <End Role="MULTIPRODUCTOS_SOLICITUD" EntitySet="MULTIPRODUCTOS_SOLICITUD" />
     </AssociationSet>
-    <FunctionImport Name="SP_MULTIPRODUCTO_CONSULTAR_X_DNI" ReturnType="Collection(panelModel.SP_MULTIPRODUCTO_CONSULTAR_X_DNI_Result)">
-      <Parameter Name="dni" Mode="In" Type="String" />
-    </FunctionImport>
     <FunctionImport Name="SP_MULTIPRODUCTO_OBTENER_PRODUCTOS" ReturnType="Collection(panelModel.SP_MULTIPRODUCTO_OBTENER_PRODUCTOS_Result)" />
     <FunctionImport Name="SP_MULTIPRODUCTO_OBTENER_PRODUCTOS_SEGMENTO" ReturnType="Collection(panelModel.SP_MULTIPRODUCTO_OBTENER_PRODUCTOS_SEGMENTO_Result)">
       <Parameter Name="segmento" Mode="In" Type="Int32" />
@@ -102,6 +67,22 @@
       <Parameter Name="dni" Mode="In" Type="String" />
       <Parameter Name="token" Mode="In" Type="Int32" />
       <Parameter Name="validado" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <EntitySet Name="MULTIPRODUCTOS_LOGS" EntityType="panelModel.MULTIPRODUCTOS_LOGS" />
+    <FunctionImport Name="SP_MULTIPRODUCTO_REGISTRAR_LOGS">
+      <Parameter Name="dni" Mode="In" Type="String" />
+      <Parameter Name="codigounico" Mode="In" Type="String" />
+      <Parameter Name="accion" Mode="In" Type="Int32" />
+      <Parameter Name="detalle" Mode="In" Type="String" />
+      <Parameter Name="ip_cliente" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="MULTIPRODUCTOS_CLIENTE" EntityType="panelModel.MULTIPRODUCTOS_CLIENTE" />
+    <AssociationSet Name="FK__MULTIPROD__clien__725D8EA4" Association="panelModel.FK__MULTIPROD__clien__725D8EA4">
+      <End Role="MULTIPRODUCTOS_CLIENTE" EntitySet="MULTIPRODUCTOS_CLIENTE" />
+      <End Role="MULTIPRODUCTOS_SOLICITUD" EntitySet="MULTIPRODUCTOS_SOLICITUD" />
+    </AssociationSet>
+    <FunctionImport Name="SP_MULTIPRODUCTO_CONSULTAR_X_DNI" ReturnType="Collection(panelModel.SP_MULTIPRODUCTO_CONSULTAR_X_DNI_Result1)">
+      <Parameter Name="dni" Mode="In" Type="String" />
     </FunctionImport>
   </EntityContainer>
   <ComplexType Name="SP_MULTIPRODUCTO_CONSULTAR_X_DNI_Result">
@@ -158,4 +139,54 @@
     <Property Name="FECHA" Type="DateTime" Precision="3" />
     <Property Name="ESTADO" Type="Int32" />
   </EntityType>
+  <EntityType Name="MULTIPRODUCTOS_LOGS">
+    <Key>
+      <PropertyRef Name="idregistro" />
+    </Key>
+    <Property Name="idregistro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dni" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="codigounico" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="accion" Type="Int32" />
+    <Property Name="detalle" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" Precision="3" />
+    <Property Name="ip_cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="MULTIPRODUCTOS_CLIENTE">
+    <Key>
+      <PropertyRef Name="clienteid" />
+    </Key>
+    <Property Name="clienteid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dni" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="nombres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="apellidos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="mail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="segmento" Type="Int32" />
+    <Property Name="celular" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="fecreg" Type="DateTime" Precision="3" />
+    <Property Name="estado" Type="Int32" />
+    <NavigationProperty Name="MULTIPRODUCTOS_SOLICITUD" Relationship="panelModel.FK__MULTIPROD__clien__725D8EA4" FromRole="MULTIPRODUCTOS_CLIENTE" ToRole="MULTIPRODUCTOS_SOLICITUD" />
+  </EntityType>
+  <Association Name="FK__MULTIPROD__clien__725D8EA4">
+    <End Type="panelModel.MULTIPRODUCTOS_CLIENTE" Role="MULTIPRODUCTOS_CLIENTE" Multiplicity="0..1" />
+    <End Type="panelModel.MULTIPRODUCTOS_SOLICITUD" Role="MULTIPRODUCTOS_SOLICITUD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MULTIPRODUCTOS_CLIENTE">
+        <PropertyRef Name="clienteid" />
+      </Principal>
+      <Dependent Role="MULTIPRODUCTOS_SOLICITUD">
+        <PropertyRef Name="clienteid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="SP_MULTIPRODUCTO_CONSULTAR_X_DNI_Result1">
+    <Property Type="Int32" Name="clienteid" Nullable="false" />
+    <Property Type="String" Name="dni" Nullable="true" MaxLength="12" />
+    <Property Type="String" Name="nombres" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="apellidos" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="mail" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="segmento" Nullable="true" />
+    <Property Type="String" Name="celular" Nullable="true" MaxLength="10" />
+    <Property Type="DateTime" Name="fecreg" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="estado" Nullable="true" />
+  </ComplexType>
 </Schema>

@@ -12,16 +12,14 @@ namespace BanBif.Multiproducto.DA
     using System;
     using System.Collections.Generic;
     
-    public partial class MULTIPRODUCTOS_SOLICITUD
+    public partial class MULTIPRODUCTOS_LOGS
     {
-        public int registroid { get; set; }
-        public Nullable<int> productoid { get; set; }
-        public Nullable<int> clienteid { get; set; }
-        public Nullable<System.DateTime> fecsol { get; set; }
-        public string ipcliente { get; set; }
-        public Nullable<int> estado { get; set; }
-    
-        public virtual MULTIPRODUCTOS_PRODUCTO MULTIPRODUCTOS_PRODUCTO { get; set; }
-        public virtual MULTIPRODUCTOS_CLIENTE MULTIPRODUCTOS_CLIENTE { get; set; }
+        public int idregistro { get; set; }
+        public string dni { get; set; }
+        public string codigounico { get; set; }
+        public Nullable<int> accion { get; set; }
+        public string detalle { get; set; }
+        public Nullable<System.DateTime> fecha { get; set; }
+        public string ip_cliente { get; set; }
     }
 }

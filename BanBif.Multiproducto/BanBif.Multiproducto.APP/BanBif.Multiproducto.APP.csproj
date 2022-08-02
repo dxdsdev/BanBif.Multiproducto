@@ -219,6 +219,7 @@
     <Content Include="assets\js\retina-1.1.0.min.js" />
     <Content Include="assets\js\scripts.js" />
     <Content Include="assets\js\Validaciones.js" />
+    <Content Include="assets\mailmask.js" />
     <Content Include="assets\owl.carousel\assets\ajax-loader.gif" />
     <Content Include="assets\owl.carousel\assets\owl.carousel.css" />
     <Content Include="assets\owl.carousel\assets\owl.carousel.min.css" />

@@ -11,9 +11,12 @@ namespace BanBif.Multiproducto.BE.Log
 
         public int idregistro { get; set; }
         public string dni { get; set; }
+        public string codigounico { get; set; }
         public Nullable<int> accion { get; set; }
         public string detalle { get; set; }
         public Nullable<System.DateTime> fecha { get; set; }
+        public string ip_cliente { get; set; }
+
 
     }
 }

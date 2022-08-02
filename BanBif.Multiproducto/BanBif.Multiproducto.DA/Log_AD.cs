@@ -35,5 +35,30 @@ namespace BanBif.Multiproducto.DA
 
         }
 
+        public LogResponse RegistrarLogs(LogResult request)
+        {
+            using (panelEntities db = new panelEntities())
+            {
+
+                LogResponse result = new LogResponse();
+                var obj = db.SP_MULTIPRODUCTO_REGISTRAR_LOGS(request.dni,request.codigounico, request.accion, request.detalle,request.ip_cliente);
+
+                if (obj==1)
+                {
+                    result.Mensaje="Guardado Correcto";
+                    result.Result=true;
+                    result.Data = request;
+                }
+                else
+                {
+                    result.Mensaje="Guardado Incorrecto";
+                    result.Result=false;
+                }
+
+                return result;
+            }
+
+        }
+
     }
 }

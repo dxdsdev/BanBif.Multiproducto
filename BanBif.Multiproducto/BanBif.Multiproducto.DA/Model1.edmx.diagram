@@ -5,13 +5,14 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="d952b1fa020f485599f6d7c8f3830fe2" Name="Diagram1">
-        <EntityTypeShape EntityType="panelModel.MULTIPRODUCTOS_CLIENTE" Width="1.5" PointX="1.125" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="panelModel.MULTIPRODUCTOS_PRODUCTO" Width="1.5" PointX="5" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="panelModel.MULTIPRODUCTOS_SOLICITUD" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <AssociationConnector Association="panelModel.FK__MULTIPROD__clien__075714DC" ManuallyRouted="false" />
         <AssociationConnector Association="panelModel.FK__MULTIPROD__produ__0662F0A3" ManuallyRouted="false" />
         <EntityTypeShape EntityType="panelModel.MULTIPRODUCTOS_LOG" Width="1.5" PointX="6.75" PointY="1.125" />
         <EntityTypeShape EntityType="panelModel.MULTIPRODUCTOS_TOKEN" Width="1.5" PointX="8.75" PointY="1.125" />
+        <EntityTypeShape EntityType="panelModel.MULTIPRODUCTOS_LOGS" Width="1.5" PointX="10.875" PointY="1.75" />
+        <EntityTypeShape EntityType="panelModel.MULTIPRODUCTOS_CLIENTE" Width="1.5" PointX="0.75" PointY="5" />
+        <AssociationConnector Association="panelModel.FK__MULTIPROD__clien__725D8EA4" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

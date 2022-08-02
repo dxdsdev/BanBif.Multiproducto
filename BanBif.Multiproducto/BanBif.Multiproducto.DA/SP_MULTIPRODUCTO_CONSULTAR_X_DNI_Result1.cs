@@ -10,18 +10,17 @@
 namespace BanBif.Multiproducto.DA
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class MULTIPRODUCTOS_SOLICITUD
+    public partial class SP_MULTIPRODUCTO_CONSULTAR_X_DNI_Result1
     {
-        public int registroid { get; set; }
-        public Nullable<int> productoid { get; set; }
-        public Nullable<int> clienteid { get; set; }
-        public Nullable<System.DateTime> fecsol { get; set; }
-        public string ipcliente { get; set; }
+        public int clienteid { get; set; }
+        public string dni { get; set; }
+        public string nombres { get; set; }
+        public string apellidos { get; set; }
+        public string mail { get; set; }
+        public Nullable<int> segmento { get; set; }
+        public string celular { get; set; }
+        public Nullable<System.DateTime> fecreg { get; set; }
         public Nullable<int> estado { get; set; }
-    
-        public virtual MULTIPRODUCTOS_PRODUCTO MULTIPRODUCTOS_PRODUCTO { get; set; }
-        public virtual MULTIPRODUCTOS_CLIENTE MULTIPRODUCTOS_CLIENTE { get; set; }
     }
 }
