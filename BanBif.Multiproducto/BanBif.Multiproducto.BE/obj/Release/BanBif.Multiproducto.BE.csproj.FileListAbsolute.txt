@@ -1,0 +1,6 @@
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.BE\bin\Release\BanBif.Multiproducto.BE.dll
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.BE\bin\Release\BanBif.Multiproducto.BE.pdb
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.BE\obj\Release\BanBif.Multiproducto.BE.csproj.AssemblyReference.cache
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.BE\obj\Release\BanBif.Multiproducto.BE.csproj.CoreCompileInputs.cache
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.BE\obj\Release\BanBif.Multiproducto.BE.dll
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.BE\obj\Release\BanBif.Multiproducto.BE.pdb

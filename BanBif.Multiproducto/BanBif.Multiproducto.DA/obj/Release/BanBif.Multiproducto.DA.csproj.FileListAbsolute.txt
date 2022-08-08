@@ -1,0 +1,14 @@
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.DA\bin\Release\BanBif.Multiproducto.DA.dll.config
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.DA\bin\Release\BanBif.Multiproducto.DA.dll
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.DA\bin\Release\BanBif.Multiproducto.DA.pdb
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.DA\bin\Release\BanBif.Multiproducto.BE.dll
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.DA\bin\Release\EntityFramework.dll
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.DA\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.DA\bin\Release\BanBif.Multiproducto.BE.pdb
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.DA\bin\Release\EntityFramework.xml
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.DA\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.DA\obj\Release\BanBif.Multiproducto.DA.csproj.AssemblyReference.cache
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.DA\obj\Release\BanBif.Multiproducto.DA.csproj.CoreCompileInputs.cache
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.DA\obj\Release\BanBif.Multiproducto.DA.csproj.CopyComplete
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.DA\obj\Release\BanBif.Multiproducto.DA.dll
+C:\Users\DRomero\Desktop\MDP\Repositorios\BanBif.Multiproducto\BanBif.Multiproducto\BanBif.Multiproducto.DA\obj\Release\BanBif.Multiproducto.DA.pdb

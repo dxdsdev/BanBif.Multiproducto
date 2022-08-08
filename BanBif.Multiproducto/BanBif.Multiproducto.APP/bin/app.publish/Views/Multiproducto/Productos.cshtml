@@ -1,0 +1,403 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="es">
+
+<head>
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Multiproductos - BanBif</title>
+
+    <!-- CSS -->
+    <link href="~/assets/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/css/form-elements.css">
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <link rel="stylesheet" href="~/assets/fonts/fonts.css">
+    <link href="~/assets/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,600,700" rel="stylesheet">
+    <link href="~/assets/css/alertifyjs/alertify.min.css" rel="stylesheet" />
+    <link href="~/assets/css/alertifyjs/default.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/daneden/animate.css/master/animate.css">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i|Roboto+Slab&display=swap" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    <!-- Favicon and touch icons -->
+    <link rel="shortcut icon" href="~/assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" href="~/assets/ico/favicon.ico">
+    <script src="~/assets/js/alertifyjs/alertify.min.js"></script>
+    <!-- include our jquery scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <link src="~/assets/fonts/fonts.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#formfloat input').focusout(function () {
+                var text_value = $(this).val();
+
+                if (text_value === "") {
+                    $(this).removeClass('float-label');
+                } else {
+                    $(this).addClass('float-label');
+                }
+            });
+        });
+    </script>
+    <script type="text/javascript">
+
+        function Cargando() {
+            $('#process-data-loader').show();
+        }
+    </script>
+</head>
+<body id="ldg_crm">
+    <div id="ModalLoading" style="display: none;">
+        <span>
+            <img src="~/assets/img/loading2.gif" width="25" height="25" /> Cargando ....
+        </span>
+    </div>
+    <nav id="ldg_crm_nav" class="bg-cyan">
+        <div class="centrado">
+            <a href="https://banbif.com.pe/"><img class="logo-bif" src="~/assets/img/logo-blanco.png" alt="logo"></a>
+        </div>
+    </nav>
+    <section id="ldg_crm_bnn-form">
+        <div class="centrado">
+            <div class="col-xs-7 col-md-6 col-lg-6">
+                <img class="logo-hola" src="~/assets/img/img_HOLA.png" alt="logo">
+                <h1>Te ayudamos a cumplir tus sueños</h1>
+
+                <div id="ldg_crm_bnn-form_beneficios" class="portfolio-details-container">
+                    <div class="owl-carousel portfolio-details-carousel">
+                        <div class="card ml-2 mr-2">
+
+                            <div class="card-body">
+                                <p>En BanBif, queremos acompañarte a realizar todas tus metas, tenemos las mejores opciones para ayudarte a crecer.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-5 col-md-6 col-lg-6"><img class="grafica" src="~/assets/img/grafica.png" alt="grafica"></div>
+        </div>
+    </section>
+
+    <section id="ldg_crm_form">
+        <div id="formfloat" class="form-box col-xs-12 col-sm-10 col-md-5 col-lg-5">
+
+            <!-- Modal identificación-->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="mb-0" style="margin-bottom: 0">Ingresa el código enviado a tu correo electrónico</p>
+
+                            <div class="input-box col-xs-12 col-md-8 col-sm-8 auto-0 text-center mb-1">
+                                <input id="token" type="text" name="token" maxlength="4" onkeypress="return soloNumeros(event)" required autocomplete="off">
+                            </div>
+                            <a id="ValidaToken" type="button" class="btn btn-next">Continuar</a>
+                            <br><span>¿No recibiste el código? <a href="#">Reenviar código</a></span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section id="ldg_crm_form">
+        <div id="formfloat" class="form-box col-xs-12 col-sm-10 col-md-5 col-lg-5">
+
+            <h2> <strong id="lblNameSession"> </strong></h2>
+            <p>A Continuación, te presentamos las ofertas que tenemos para ti</p>
+            <div class="formulario">
+
+            </div>
+
+
+            <style>
+                .tarjeta-container {
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex-direction: row;
+                    justify-content: center;
+                }
+
+                .tarjeta {
+                    padding-top: 10px;
+                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                    max-width: 300px;
+                    margin: auto;
+                    text-align: center;
+                    font-family: arial;
+                    border-radius: 10px;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    margin-left: 10px;
+                    margin-right: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                    flex-wrap: wrap;
+                }
+
+                .price {
+                    color: grey;
+                    font-size: 22px;
+                }
+
+                .tarjeta button {
+                    border: none;
+                    border-radius: 10px;
+                    outline: 0;
+                    padding: 12px;
+                    color: white;
+                    background-color: #FFB81C;
+                    text-align: center;
+                    cursor: pointer;
+                    width: 80%;
+                    font-size: 18px;
+                }
+
+                    .tarjeta button:hover {
+                        opacity: 0.7;
+                    }
+            </style>
+
+
+        </div>
+    </section>
+
+    <section class="tarjeta-container" id="containerTarjetas">
+        @*<div class="tarjeta">
+
+                <h2 style="font-size:2em ;color: #000;text-align:center">Cuenta de Ahorro Digital</h2>
+
+                <p class="price">TREA promocional 4.25%</p>
+                <p>Cero mantenimiento</p>
+                <p>Sin Monto de Apertura</p>
+                <p><button>¡La quiero!</button></p>
+                <p>Mayor Informacion</p>
+                <p>Vigencia hasta el 25/08/2022</p>
+            </div>              
+            *@
+
+    </section>
+
+    <section id="ldg_crm_form">        
+
+            <h2> <strong id="lblNameSession"> </strong></h2>
+            <p>Ante cualquier duda o consulta, no dudes en comunicarte con cualquiera de nuestros canales oficiales</p>
+            <p>Banca Telefónica 631-9000(Lima) o 0-801-0-0456(Provincias) o visitanos en cualquiera de nuestras oficinas a nivel nacional</p>
+            <div class="formulario">
+            </div>
+    </section>
+
+    
+
+    <!-- Javascript -->
+    <script src="https://www.banbif.com.pe/Portals/0/Landing%20Registro/nvo/formulario/assets/js/jquery-1.11.1.min.js"></script>
+    <script src="~/assets/owl.carousel/owl.carousel.min.js"></script>
+    <script src="~/assets/js/Validaciones.js"></script>
+
+    <!--Scripts para fondo de pantalla
+    <script src="assets/js/jquery.backstretch.min.js"></script>-->
+    <script src="https://www.banbif.com.pe/Portals/0/Landing%20Registro/nvo/formulario/assets/js/scripts.js"></script>
+
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!--[if lt IE 10]>
+        <script src="assets/js/placeholder.js"></script>
+    <![endif]-->
+
+    <script>
+        var NroDocumento = "";
+
+
+        function RegistrarLog(request) {
+
+            request.CodigoUnico = sessionStorage.UID;
+            request.ip_cliente = sessionStorage.IP_CLIENTE;
+
+            sessionStorage.setItem("URL", "@ViewBag.URL");
+            $.ajax({
+                url: sessionStorage.URL + '/Multiproducto/RegistrarLog',
+                type: "POST",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                processData: true,
+                data: JSON.stringify(request),
+                success: function (response) {
+
+                    console.log(request);
+                    console.log(response);
+                }
+            });
+        }
+
+        function RegistrarLogProductos(url) {
+
+            var LogRequest = {};
+            LogRequest.dni = sessionStorage.dni;
+            LogRequest.accion = 5;
+            LogRequest.detalle = "PROCESO: SELECCION DE PRODUCTO | STATUS: TRUE | URL: " +url ;            
+            LogRequest.DetalleLog = "PROCESO: SELECCION DE PRODUCTO | STATUS: TRUE | URL: " + url;
+
+            RegistrarLog(LogRequest);
+
+        }
+
+
+
+        function CargarProductos() {
+            var request = '';
+
+            sessionStorage.setItem("URL", "@ViewBag.URL");
+            $.ajax({
+                url: sessionStorage.URL + 'Multiproducto/ObtenerProductos',
+                type: "POST",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                processData: true,
+                data: JSON.stringify(request),
+                success: function (response) {
+                    console.log(response);
+                    if (response.Result) {
+                        var array = response.Data.Data
+                        for (var i in array) {
+                            console.log(array[i])
+
+                            var DateValue = array[i].vigencia.substring(6, 16)
+
+                            console.log(moment(array[i].vigencia).format('DD-MM-YYYY'))
+
+                            if (array[i].detalle2===null) {
+                                array[i].detalle2 = '';
+                            }
+
+                            if (array[i].condicion===null) {
+                                array[i].condicion = '';
+                            }
+
+                            var htmltarjeta = '<div class="tarjeta">'+
+                                                    '<h2 style = "font-size:2em ;color: #000;text-align:center" >' +array[i].descripcion+ '</h2>'+
+                                                    '<p class="price">' + array[i].detalle1 +'</p>'+
+                                                    '<p>'+array[i].detalle2+'</p>'+
+                                                    '<p>'+array[i].condicion+'</p>'+
+                                                    '<p><a onclick="RegistrarLogProductos(\''+array[i].masinf+'\')" href="'+array[i].masinf +'" target="_blank"><button>¡La quiero!</button></a></p>'+
+                                                    //'<p><a href=#>'+array[i].masinf+'</a></p>'+
+                                                    //'<p>Vigencia hasta el '+moment(array[i].vigencia).format('DD-MM-YYYY')+'</p>'+
+                                                '</div>';
+
+                            var containerTarjetas = document.getElementById("containerTarjetas");
+                            containerTarjetas.innerHTML +=htmltarjeta;
+
+
+                        }
+                    }
+                }
+            });
+        }
+
+
+        $(document).ready(function () {
+
+            if (sessionStorage.validado != 1) {
+                window.location.href = sessionStorage.URL + "Multiproducto/Index";
+            }
+
+            var lblNameSession = document.getElementById("lblNameSession")
+            lblNameSession.innerHTML = 'Gracias por confiar en nosotros ' + sessionStorage.nombres;
+
+            CargarProductos();
+
+
+        });
+
+
+    </script>
+    <script type="text/javascript">
+        function FN_Loading() {
+
+            $.blockUI({
+                message: $("#ModalLoading"),
+                css: {
+                    border: 'none',
+                    padding: '15px',
+                    backgroundColor: '#000000',
+                    '-webkit-border-radius': '50px',
+                    '-moz-border-radius': '50px',
+                    opacity: .7,
+                    color: '#fff'
+                },
+                baseZ: 2000
+
+            });
+        }
+    </script>
+    <script>
+        // Portfolio details carousel
+        $(".portfolio-details-carousel").owlCarousel({
+            autoplay: true,
+            autoplayHoverPause: true,
+            items: 4,
+            nav: true,
+            dots: true,
+            loop: true,
+            margin: 10,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: true,
+                    autoplay: true,
+                },
+                600: {
+                    items: 1,
+                    nav: true,
+                    autoplay: true,
+                },
+                1000: {
+                    items: 1,
+                    nav: true,
+                    loop: true,
+                    autoplay: true,
+                    margin: 20
+                }
+            }
+        });
+
+
+    </script>
+
+
+</body>
+
+</html>
